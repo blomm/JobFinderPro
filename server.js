@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var jobModel = require('./models/Job.js');
+var secrets = require('./config.js');
 
 var app = express();
 
@@ -20,7 +21,7 @@ app.get('*', function(req, res){
 })
 
 //mongoose.connect('mongodb://localhost/jobfinder');
-mongoose.connect('mongodb://blomm:geomatic@ds047930.mongolab.com:47930/jobfinder')
+mongoose.connect('mongodb://' + secrets.mongolabUser + ':' + secrets.mongolabPass + '@ds047930.mongolab.com:47930/jobfinder')
 
 var con = mongoose.connection;
 con.once('open', function(){
