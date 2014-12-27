@@ -7,7 +7,7 @@ var jobSchema = mongoose.Schema({
     description: {
         type: String
     }
-})
+});
 
 mongoose.model('Job', jobSchema);
 

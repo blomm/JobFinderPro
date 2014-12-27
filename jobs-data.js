@@ -1,12 +1,12 @@
 var Promise = require('bluebird');
 var mongoose = require('mongoose');
-
+//although we don't use the jobModel in here, we need to make sure it loads first, before we can do "var Job = mongoose.model('Job');"
+var jobModel = require('./models/Job.js');
 var Job = mongoose.model('Job');
 
 var findJobs = function (query){
-    
     return Promise.resolve(Job.find(query).exec());
-}
+};
 
 exports.findJobs = findJobs;
 
