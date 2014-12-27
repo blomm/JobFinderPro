@@ -7,6 +7,7 @@ if(process.env.MONGOUSER === undefined || process.env.MONGOPASS === undefined){
     var secrets = require('./config.js');
 }
 else{
+    //test comments
     //console.log('trying to use the process env config variables....');
     var secrets = {
         mongolabUser: process.env.MONGOUSER,
