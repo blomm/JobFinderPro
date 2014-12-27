@@ -1,11 +1,13 @@
 var express = require('express');
 var jobsData = require('./jobs-data.js');
 
-//only try to load the config if we are not in heroku
-if(process.env.MONGOUSER === 'undefined' || process.env.MONGOPASS === 'undefined'){
+//only try to load the config file if we are not in heroku
+if(process.env.MONGOUSER === undefined || process.env.MONGOPASS === undefined){
+    //console.log('using the config file...');
     var secrets = require('./config.js');
 }
 else{
+    //console.log('trying to use the process env config variables....');
     var secrets = {
         mongolabUser: process.env.MONGOUSER,
         mongolabPass: process.env.MONGOPASS
