@@ -4,7 +4,7 @@ var jobsData = require('./jobs-data.js');
 //only try to load the config file if we are not in heroku
 if(process.env.MONGOUSER === undefined || process.env.MONGOPASS === undefined){
     //console.log('using the config file...');
-    //some comment
+    //some commentssss
     var secrets = require('./config.js');
 }
 else{
