@@ -13,14 +13,12 @@ exports.findJobs = findJobs;
 exports.connectDB = Promise.promisify(mongoose.connect, mongoose);
 
 exports.seedJobs = function(){
-    //return new Promise(function(success, fail){
     return findJobs({})
         .then(function(collection){
             //console.log('collection size: ' + collection.length)
             if(collection.length===0){
                 return Promise.map(jobs, function(job){
                     return createJob(job);
-                    
                 });    
             }
         }
